@@ -4,3 +4,4 @@ RUN apt-get update && apt-get upgrade -y
 WORKDIR /var/www/html
 COPY . .
 COPY mysqlConnection.php index.php
+ENV Host=3.91.37.244
