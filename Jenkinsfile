@@ -12,20 +12,20 @@ pipeline {
                 git 'https://github.com/anilprajapati22/jenkins_2_tier.git'
             }
         }
-        stage('Login') {
+        // stage('Login') {
 
-			steps {
-				sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
-			}
-		}
+		// 	steps {
+		// 		sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
+		// 	}
+		// }
         
-        stage('Build-Mysql') {
-            steps {
-                echo "Mysql"
-                sh "docker rm -f my-mysql || true"
-                sh 'docker run -d --name my-mysql -p 3306:3306 -e MYSQL_ROOT_PASSWORD=root -e MYSQL_PASSWORD=passwd -e MYSQL_USER=sgn -e MYSQL_DATABASE=sgndb mysql:8'
-            }
-        }
+        // stage('Build-Mysql') {
+        //     steps {
+        //         echo "Mysql"
+        //         sh "docker rm -f my-mysql || true"
+        //         sh 'docker run -d --name my-mysql -p 3306:3306 -e MYSQL_ROOT_PASSWORD=root -e MYSQL_PASSWORD=passwd -e MYSQL_USER=sgn -e MYSQL_DATABASE=sgndb mysql:8'
+        //     }
+        // }
         stage('Build-php-server') {
             steps {
                 echo "creating php server"
