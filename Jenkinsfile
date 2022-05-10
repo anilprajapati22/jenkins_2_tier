@@ -26,6 +26,7 @@ pipeline {
         //         sh 'docker run -d --name my-mysql -p 3306:3306 -e MYSQL_ROOT_PASSWORD=root -e MYSQL_PASSWORD=passwd -e MYSQL_USER=sgn -e MYSQL_DATABASE=sgndb mysql:8'
         //     }
         // }
+        
         stage('Build-php-server') {
             steps {
                 echo "creating php server"
