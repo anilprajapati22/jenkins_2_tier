@@ -36,10 +36,10 @@ pipeline {
             }
         }
         stage('Deploy-php-server') {
-            
+
             steps {
                 sh 'docker rm -f php-server || true'
-                sh 'docker run -d -p 80:80 --name php-server php-server'
+                sh 'docker run -d -p 81:80 --name php-server php-server'
                 sh 'docker logs php-server'
             }
         }
