@@ -28,6 +28,7 @@ pipeline {
         // }
         
         stage('Build-php-server') {
+            agent { label 'agent-test' }
             steps {
                 echo "creating php server"
                 sh 'docker build -t php-server .'
