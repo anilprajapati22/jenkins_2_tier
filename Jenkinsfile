@@ -2,7 +2,7 @@ pipeline {
     agent any
     environment { 
         sgnenv = "Hello this is the value of env variable"
-        DOCKERHUB_CREDENTIALS=credentials('dockerhub')
+        // DOCKERHUB_CREDENTIALS=credentials('dockerhub')
     }
 
     stages {
@@ -19,13 +19,14 @@ pipeline {
 		// 	}
 		// }
         
-        // stage('Build-Mysql') {
-        //     steps {
-        //         echo "Mysql"
-        //         sh "docker rm -f my-mysql || true"
-        //         sh 'docker run -d --name my-mysql -p 3306:3306 -e MYSQL_ROOT_PASSWORD=root -e MYSQL_PASSWORD=passwd -e MYSQL_USER=sgn -e MYSQL_DATABASE=sgndb mysql:8'
-        //     }
-        // }
+        stage('Build-Mysql') {
+            agent { label 'agent-test' }
+            steps {
+                echo "Mysql"
+                sh "docker rm -f my-mysql || true"
+                sh 'docker run -d --name my-mysql -p 3306:3306 -e MYSQL_ROOT_PASSWORD=root -e MYSQL_PASSWORD=passwd -e MYSQL_USER=sgn -e MYSQL_DATABASE=sgndb mysql:8'
+            }
+        }
         
         stage('Build-php-server') {
             agent { label 'agent-test' }
