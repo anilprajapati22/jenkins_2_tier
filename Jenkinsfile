@@ -29,14 +29,14 @@ pipeline {
         }
         
         stage('Build-php-server') {
-            agent { label 'Built-In Node' }
+            agent { label 'Jenkins' }
             steps {
                 echo "creating php server"
                 sh 'docker build -t php-server .'
             }
         }
         stage('Deploy-php-server') {
-            agent { label 'Built-In Node' }
+            agent { label 'Jenkins' }
             steps {
                 sh 'docker rm -f php-server || true'
                 sh 'docker run -d -p 80:80 --name php-server php-server'
