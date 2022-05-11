@@ -35,6 +35,7 @@ pipeline {
             }
         }
         stage('Deploy-php-server') {
+            agent { label 'agent-test' }
             steps {
                 sh 'docker rm -f php-server || true'
                 sh 'docker run -d -p 80:80 --name php-server php-server'
