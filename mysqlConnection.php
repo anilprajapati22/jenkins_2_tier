@@ -23,6 +23,6 @@ while($tbl = mysqli_fetch_array($result)) {
 if (!$tblCnt) {
   echo "There are no tables<br />\n";
 } else {
-  echo "There are $tblCnt tables    changes<br />\n";
+  echo "<h1> There are $tblCnt tables    changes<br /> </h1> \n";
 } 
 ?>
