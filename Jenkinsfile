@@ -41,6 +41,7 @@ pipeline {
                 sh 'docker rm -f php-server || true'
                 sh 'docker run -d -p 81:80 --name php-server php-server'
                 sh 'docker logs php-server'
+                
             }
         }
 
