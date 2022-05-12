@@ -20,7 +20,7 @@ pipeline {
 		// }
         
         stage('Build-Mysql') {
-            agent { label 'agent-test' }
+            //agent { label 'agent-test' }
             steps {
                 echo "Mysql"
                 sh "docker rm -f my-mysql || true"
