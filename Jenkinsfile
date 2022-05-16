@@ -4,7 +4,7 @@ pipeline {
   stages {
     stage('build no'){
         when{
-            branch "fix*"
+            branch "dev*"
         }
         steps {
         withCredentials([gitUsernamePassword(credentialsId: 'sgnons_id', gitToolName: 'git-tool')]) {
