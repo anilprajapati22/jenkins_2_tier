@@ -40,7 +40,7 @@ pipeline{
             steps{
             sh "docker container rm -f php-server || true"
             sh "docker container rm -f php-server-prod || true"        
-            sh "docker run -d -p 80:80 --name 590852515231.dkr.ecr.us-east-1.amazonaws.com/anilp-sgn-repo-docker:build-${tagid}"
+            sh "docker run -d -p 80:80 --name php-server-prod 590852515231.dkr.ecr.us-east-1.amazonaws.com/anilp-sgn-repo-docker:build-${tagid}"
             sh "docker image prune -a --force"
             }
         }
