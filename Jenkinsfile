@@ -1,6 +1,6 @@
 def awsCredentials = [[$class: 'AmazonWebServicesCredentialsBinding', credentialsId: 'aws']]
 pipeline {
-  agent any
+  agent agent-test
   stages {
     stage('build no'){
         when{
